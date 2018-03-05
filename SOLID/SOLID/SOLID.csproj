@@ -40,7 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepository.cs" />
+    <Compile Include="OpenClosed\BadCode\POS.cs" />
+    <Compile Include="OpenClosed\GoodCode\ITaxCalculator.cs" />
+    <Compile Include="OpenClosed\GoodCode\POS.cs" />
+    <Compile Include="OpenClosed\GoodCode\VatTaxCalculator.cs" />
+    <Compile Include="OpenClosed\Product.cs" />
+    <Compile Include="OpenClosed\ProductTaxType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

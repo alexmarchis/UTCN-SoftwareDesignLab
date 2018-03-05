@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepository.cs" />
+    <Compile Include="LiskovSubstitution\BadCode\BadCode.cs" />
     <Compile Include="OpenClosed\BadCode\POS.cs" />
     <Compile Include="OpenClosed\GoodCode\ITaxCalculator.cs" />
     <Compile Include="OpenClosed\GoodCode\POS.cs" />

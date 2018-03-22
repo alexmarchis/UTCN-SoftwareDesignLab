@@ -1,20 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 
 namespace DataAccess
 {
     public class TicketDataMapper
     {
-        public List<Ticket> GetAllTickets()
+        public IEnumerable<Ticket> GetAllTickets()
         {
-            return new List<Ticket>
+            using (DbConnection connection = DbConnectionBuilder.CreateConnection())
             {
-                new Ticket{Id = 1, TimeStamp = DateTime.Now},
-                new Ticket{Id = 2, TimeStamp = DateTime.Now.AddDays(-1)},
-                new Ticket{Id = 3, TimeStamp = DateTime.Now.AddHours(-1)},
-                new Ticket{Id = 4, TimeStamp = DateTime.Now.AddDays(-2)},
-                new Ticket{Id = 5, TimeStamp = DateTime.Now.AddDays(-2)}
-            };
+                DbCommand command = DbConnectionBuilder.CreateCommand();
+                command.Connection = connection;
+                command.CommandType = CommandType.Text;
+                command.CommandText = "SELECT Id, TimeStamp FROM Tickets";
+
+                connection.Open();
+                DbDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        yield return new Ticket
+                        {
+                            Id = (int)reader[0],
+                            TimeStamp = (DateTime)reader[1]
+                        };
+                    }
+                }
+
+                reader.Close();
+            }
         }
     }
 }

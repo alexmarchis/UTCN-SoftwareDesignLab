@@ -11,7 +11,7 @@ namespace Services
         public int GetTotalRevenue()
         {
             TicketDataMapper dataMapper = new TicketDataMapper();
-            return dataMapper.GetAllTickets().Count * ticketPrice;
+            return dataMapper.GetAllTickets().Count() * ticketPrice;
         }
 
         public int GetRevenue(DateTime date)

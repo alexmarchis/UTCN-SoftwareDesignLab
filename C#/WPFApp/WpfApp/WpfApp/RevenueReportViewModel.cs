@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace WpfApp
 {
-    public class MainWindowDataContext : INotifyPropertyChanged
+    public class RevenueReportViewModel : INotifyPropertyChanged
     {
         private int totalRevenue;
         private int todayRevenue;

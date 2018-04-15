@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<hibernate-mapping package="model">
+
+    <class name="Product" table="products">
+        <id name="id" column="ID">
+            <generator class="increment"/>
+        </id>
+        <property name="Name" column="name"/>
+    </class>
+
+</hibernate-mapping>
